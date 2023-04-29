@@ -1,4 +1,14 @@
-{
+{  
+  "name": "garden", 
+  "description": "A Chippr-AGI vr application", 
+  "private": true, 
+  "author": "Chippr Robotics LLC", 
+  "version": "0.0.1", 
+  "repository": "", 
+  "scripts": { 
+    "start": "brunch watch --server", 
+    "build": "brunch build --production" 
+  },
   "dependencies": {
     "aframe-animation-component": "^5.1.2",
     "aframe-bmfont-text-component": "^0.1.4",
