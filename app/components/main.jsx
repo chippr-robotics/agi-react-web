@@ -20,8 +20,8 @@ class Main extends Component {
           return ( 
                 <Scene> 
                     <a-assets> 
-                         <img crossOrigin id="groundTexture" src="img/floor.jpg" /> 
-                         <img crossOrigin id="skyTexture" src="img/sky.jpg" /> 
+                         <img crossOrigin id="groundTexture" src="img/floor.png" /> 
+                         <img crossOrigin id="skyTexture" src="img/sky.png" /> 
                     </a-assets> 
                                                                                                                 
                      <Entity 
