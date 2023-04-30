@@ -8,12 +8,14 @@ import 'aframe-animation-component'
 import 'aframe-event-set-component' 
 import 'aframe-particle-system-component' 
 //import './components/aframe-custom' 
-//import './components/aframe-environment' 
+import './js/aframe-environment' 
 //import './components/aframe-effects' 
                     
 import { h, render } from 'preact' 
-import Main from './components/main' 
+import Main from './main' 
                         
 document.addEventListener('DOMContentLoaded', () => { 
-    render(<Main />, document.querySelector('#app')) 
+   
+    console.log("trying to load");
+    render(<div>help!</div>, document.querySelector('#Main')) 
 })

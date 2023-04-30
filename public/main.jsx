@@ -1,11 +1,13 @@
-import { h, Component } from 'preact' 
-import { Entity, Scene } from 'aframe-react' 
+
+
+import { h, Component } from 'preact'; 
+import { Entity, Scene } from 'aframe-react'; 
 
 const COLORS = ['#D92B6A', '#9564F2', '#FFCF59'] 
       
 class Main extends Component { 
-     constructor() { 
-          super() 
+     constructor(props) { 
+          super(props) 
           this.state = { color: 'red' } 
      } 
                          
@@ -18,7 +20,7 @@ class Main extends Component {
                                                        
      render() { 
           return ( 
-                <Scene> 
+               <Scene> 
                     <a-assets> 
                          <img crossOrigin id="groundTexture" src="img/floor.png" /> 
                          <img crossOrigin id="skyTexture" src="img/sky.png" /> 
