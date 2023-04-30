@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "aframe": "./aframe.js",
+    "aframe-event-set-component": "./aframe-event-set-component.js",
+    "aframe-react": "./aframe-react.js",
+    "preact": "./preact.js",
+    "preact/devtools": "./preact/devtools.js",
+    "preact/hooks": "./preact/hooks.js"
+  }
+}
