@@ -4,7 +4,9 @@ import { Entity} from "aframe-react";
                    
 export default function User() {              
        return (                                     
-              <Entity primitive="a-camera"> 
+              <Entity 
+                     primitive="a-camera"
+                     position="0 0 0" > 
                      <Entity 
                             cursor={{ fuseTimeout: 500 }} 
                                 geometry={{ 
