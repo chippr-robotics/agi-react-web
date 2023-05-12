@@ -1,31 +1,19 @@
 import { h } from "preact"; 
 import { useState } from "preact/hooks"; 
 import { Entity} from "aframe-react"; 
+import Navbar from "./UI/NavBar";
                    
 export default function User() {              
        return (                                     
               <Entity 
                      primitive="a-camera"
-                     position="0 0 0" > 
-                     <Entity 
-                            cursor={{ fuseTimeout: 500 }} 
-                                geometry={{ 
-                                   primitive: "ring", 
-                                   radiusInner: 0.006, 
-                                   radiusOuter: 0.01, 
-                            }} 
-                            material={{ color: "white", shader: "flat" }} 
-                            position="0 0 -1" 
-                            raycaster="objects: .raycasterable" 
-                            animation__click={{ 
-                                   property: "scale", 
-                                   startEvents: "click", 
-                                   easing: "easeInCubic", 
-                                   dur: 200, 
-                                   from: "0.1 0.1 0.1", 
-                                   to: "1 1 1", 
-                                   }} 
-                     ></Entity> 
+                     position="0 0 0" 
+                     look-controls="enabled: false" 
+                     cursor="fuse: false; rayOrigin: mouse;" 
+                     raycaster="far: 10000; objects: .raycasterable"> 
+                     
+                     <Navbar />
+                      
               </Entity> 
        ); 
 }

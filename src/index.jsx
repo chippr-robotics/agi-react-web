@@ -15,17 +15,6 @@ import {Environment} from "./styles/environment";
 import User from "./components/User";
 import ARTarget from "./components/AR";
 import NavButtons from "./components/navButtons";
-import Navbar from "./components/NavBar";
-/* mindar-image-target="targetIndex: 0"
-   mindar-image= {"imageTargetSrc: "+ this.targetImage}
-   vr-mode-ui="enabled: false" 
-   device-orientation-permission-ui="enabled: false"
-   color-space="sRGB" 
-   renderer="colorManagement: true, physicallyCorrectLights" 
-
-   this.handleClick = this.handleClick.bind(this);
-      this.targetImage = './assets/lib/targets.mind;';
-   */
 
 export const ContextCounter = createContext(null);
 var titleSlides = [1, 4, 11, 19, 25];
@@ -52,16 +41,19 @@ function App() {
       };        
    }
    
+   function home(){
+      setTitleIndex(1);
+      setSlideIndex(2);
+   }
    
    const counter = useMemo(() => {
-      return { titleIndex, slideIndex, increment, decrement};
+      return { titleIndex, slideIndex, increment, decrement, home};
    }, [slideIndex, titleIndex]);
       
    return (
       <Scene >
          <ContextCounter.Provider value={counter}>
             <NavButtons />
-            <Navbar />
             <ARTarget />
             <User />
             <Entity light={{ type: "ambient", color: "#BBB" }} /> 

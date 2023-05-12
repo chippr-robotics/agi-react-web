@@ -6,7 +6,7 @@ import {ContextCounter} from '../index';
 
                    
 export default function ARTarget() {
-    const { slideIndex, titleIndex, increment } = useContext(ContextCounter);
+    const { titleIndex } = useContext(ContextCounter);
         return (    
             <Entity
             primitive="a-text"
