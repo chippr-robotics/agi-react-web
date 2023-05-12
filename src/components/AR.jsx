@@ -12,8 +12,6 @@ export default function ARTarget() {
             primitive="a-text"
             text={"value: "+titleIndex+";"}
             position="0 1 -1.9"
-            />
-                
-                    
+            />           
        ); 
 }
