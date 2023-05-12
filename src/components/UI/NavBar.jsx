@@ -7,11 +7,12 @@ import {ContextCounter} from '../../index';
 
 export default function Navbar() {            
        const { increment, decrement, home } = useContext(ContextCounter);
-       let [ menuState, setMenuState ] = useState('true');
+       let [ menuState, setMenuState ] = useState('false');
        
        function menuToggle(){
               console.log(menuState)
               if (menuState == 'true') {
+                     //the nav buttons are being displayed
                      setMenuState('false'); 
                } else {
                      setMenuState('true');
@@ -24,21 +25,21 @@ export default function Navbar() {
                      rotation='-45,0,0'>
                      
                      <Entity 
-                     position='0,0,1'
+                     position='0, -.2, 0'
                      radius=".1"
                      primitive="a-sphere"  
-                     src="https://i.imgur.com/mYmmbrp.jpg"
-                     visible="true" 
-                     color="blue"
+                     visible='true'
                      class="raycasterable" 
+                     animation__mouseenter="property: radius; to: .11; dur: 500; dir:to; startEvents: mouseenter"
+                     animation__mouseleave="property: radius; to: .1; dur: 500; dir:to; startEvents: mouseleave"
                      events={{ 
                             click: menuToggle
                      }}
                      />
-                     
+
+                    
                      <NavButton 
-                     position='-.5, 0, 0'
-                     src="./dist/assets/lib/swipe.png"
+                     position='-.25, 0, 0'
                      visible={menuState}
                      events={{ 
                          click: decrement
@@ -51,7 +52,7 @@ export default function Navbar() {
                          click: home
                      }} />
                      <NavButton 
-                     position='.5, 0, 0'
+                     position='.25, 0, 0'
                      visible={menuState}
                      events={{ 
                          click: increment

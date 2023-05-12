@@ -51,13 +51,11 @@ function App() {
    }, [slideIndex, titleIndex]);
       
    return (
-      <Scene >
+      <Scene vr-mode-ui="enabled: true" >
          <ContextCounter.Provider value={counter}>
             <NavButtons />
             <ARTarget />
             <User />
-            <Entity light={{ type: "ambient", color: "#BBB" }} /> 
-            <a-sky color="#ECFFEC" ></a-sky>
          </ContextCounter.Provider>
       </Scene> 
    );

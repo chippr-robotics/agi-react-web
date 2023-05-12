@@ -8,7 +8,7 @@ export default function User() {
               <Entity 
                      primitive="a-camera"
                      position="0 0 0" 
-                     look-controls="enabled: false" 
+                     look-controls="enabled: true" 
                      cursor="fuse: false; rayOrigin: mouse;" 
                      raycaster="far: 10000; objects: .raycasterable"> 
                      
