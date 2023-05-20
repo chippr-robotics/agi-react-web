@@ -15,6 +15,7 @@ import {Environment} from "./styles/environment";
 import User from "./components/User";
 import ARTarget from "./components/AR";
 import NavButtons from "./components/navButtons";
+import Menu from "./components/speech";
 
 export const ContextCounter = createContext(null);
 var titleSlides = [1, 4, 11, 19, 25];
@@ -40,7 +41,7 @@ function App() {
           setSlideIndex((slideIndex - 1) % 20);
       };        
    }
-   
+
    function home(){
       setTitleIndex(1);
       setSlideIndex(2);
@@ -51,13 +52,15 @@ function App() {
    }, [slideIndex, titleIndex]);
       
    return (
-      <Scene vr-mode-ui="enabled: true" >
+      <Scene >
          <ContextCounter.Provider value={counter}>
             <NavButtons />
+            <Menu />
             <ARTarget />
             <User />
+            <Entity primitive="a-sky" color="grey" />
          </ContextCounter.Provider>
       </Scene> 
    );
 };
-render(<App />, document.getElementById("root"));
+render(<App />, document.body);

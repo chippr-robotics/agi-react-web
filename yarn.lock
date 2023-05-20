@@ -594,6 +594,11 @@ aframe-react@^4.4.0:
   resolved "https://registry.yarnpkg.com/aframe-react/-/aframe-react-4.4.0.tgz#f8af660bc4f64746d7cddb065ad9cc5e88f358b9"
   integrity sha512-/3C0fhCRJywLSP7JsZM/nG/bGQxbt8oEnRK3DLOUmcCtd6xulpwOf8i/Mb0Mbg/U77Y097wdSZ0mVXgEL2+u4Q==
 
+aframe-speech-command-component@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/aframe-speech-command-component/-/aframe-speech-command-component-0.4.2.tgz#3ef847939ad4651e87bef82fde108474d53426be"
+  integrity sha512-eAJODRXJEeAsDvhv5jyTO8VRnoQ1y5dcV36kF+U/zdChEWph4QthF0zq4iwCrENJDAO0PnddRM3PqQKhaEmuWQ==
+
 aframe@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/aframe/-/aframe-1.4.2.tgz#0dd4c5a8be3e45053f3e9d9fcb574e9872efe698"
@@ -656,6 +661,11 @@ animejs@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/animejs/-/animejs-2.2.0.tgz#35eefdfc535b81949c9cb06f0b3e60c02e6fdc80"
   integrity sha512-suPqfRapTDhrfwxg1El8LlGz6qVGwoandR2uRQLQBxXavxkpIr9Uv2kNGrJIF7oa001jSxS5rRIXPHryKIshJg==
+
+annyang@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/annyang/-/annyang-2.6.1.tgz#93140d7014f268a9d6c4319505715b0469dec856"
+  integrity sha512-KfO6FVFmE7H7epXgAWRoGITShVqsDs6zLKuTxDiJHZmAVnpKeUAKiMUIr7hDXbNUOqRIB3RVTQQd/Yaf4ULauw==
 
 ansi-regex@^2.0.0:
   version "2.1.1"

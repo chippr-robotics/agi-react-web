@@ -17,6 +17,8 @@
     "aframe-event-set-component": "^5.0.0",
     "aframe-particle-system-component": "^1.1.3",
     "aframe-react": "^4.4.0",
+    "aframe-speech-command-component": "^0.4.2",
+    "annyang": "^2.6.1",
     "preact": "^10.13.2",
     "react": "^18.2.0",
     "snowpack": "^3.8.8"

@@ -10,7 +10,7 @@ export default function NavButtons() {
     
     return(
         <Entity 
-            position='0, 0, -2'>
+            position='0, 0, -2'> 
             <Entity 
                 primitive="a-box" 
                 id="titleBox"
@@ -18,7 +18,7 @@ export default function NavButtons() {
                 depth=".05" 
                 height=".85" 
                 width="1.05" 
-                position="-1.2 .5 .25" 
+                position="-1.2 1 .25" 
                 rotation=" 0 0 30 "
                 animation="property: rotation; to: 0 10 -30; dur: 15000; dir:alternate; loop: true"
             />

@@ -15,6 +15,7 @@ module.exports = {
    }, 
    devOptions: { 
    /* ... */ 
+      ports: 3000,
    }, 
    buildOptions: { 
    /* ... */ 
