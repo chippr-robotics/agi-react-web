@@ -19,6 +19,10 @@ export default function Navbar() {
                };
        };
 
+       function test(){
+              console.log('triggered');
+       }
+
        return ( 
               <Entity 
                      position='0, -.5, -1.1'
@@ -37,25 +41,26 @@ export default function Navbar() {
                      }}
                      />
 
-                    
                      <NavButton 
                      position='-.25, 0, 0'
                      visible={menuState}
                      events={{ 
-                         click: decrement
+                         back: test
                      }} />
 
                      <NavButton 
                      position='0, 0, 0'
                      visible={menuState}
                       events={{ 
-                         click: home
+                         click: home,
+                         home: home
                      }} />
                      <NavButton 
                      position='.25, 0, 0'
                      visible={menuState}
                      events={{ 
-                         click: increment
+                         click: increment,
+                         next: increment,
                      }} />
               </Entity>
        );

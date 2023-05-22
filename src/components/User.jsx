@@ -11,8 +11,7 @@ export default function User() {
                      look-controls="enabled: true" 
                      cursor="fuse: false; rayOrigin: mouse;" 
                      raycaster="far: 10000; objects: .raycasterable"> 
-                     
-                     <Navbar />
+               
                       
               </Entity> 
        ); 

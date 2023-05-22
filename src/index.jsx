@@ -6,16 +6,15 @@ import "aframe";
 import { Entity, Scene } from "aframe-react";
 import "aframe-event-set-component" 
 import "./assets/js/aframe-environment"; 
-import "./assets/af_components/ar-components"
-//import "./assets/lib"
-import {Environment} from "./styles/environment";
+import "./assets/af_components/ar-components";
+import "./assets/af_components/voice-nav";
 
 //Custom components
 
 import User from "./components/User";
-import ARTarget from "./components/AR";
+import DisplayBoard from "./components/displayBoard";
 import NavButtons from "./components/navButtons";
-import Menu from "./components/speech";
+import Menu from "./components/UI/speech";
 
 export const ContextCounter = createContext(null);
 var titleSlides = [1, 4, 11, 19, 25];
@@ -27,18 +26,18 @@ function App() {
    function increment() {
       if(titleSlides.includes(slideIndex)){
           setTitleIndex(slideIndex);
-          setSlideIndex((slideIndex + 1) % 20);
+          setSlideIndex((slideIndex + 1) );
       } else {
-          setSlideIndex((slideIndex + 1) % 20);
+          setSlideIndex((slideIndex + 1) );
       };        
    }
    
    function decrement() {
       if(titleSlides.includes(slideIndex)){
           setTitleIndex(slideIndex);
-          setSlideIndex((slideIndex - 1) % 20);
+          setSlideIndex((slideIndex - 1) );
       } else {
-          setSlideIndex((slideIndex - 1) % 20);
+          setSlideIndex((slideIndex - 1) );
       };        
    }
 
@@ -50,13 +49,14 @@ function App() {
    const counter = useMemo(() => {
       return { titleIndex, slideIndex, increment, decrement, home};
    }, [slideIndex, titleIndex]);
-      
+   setInterval(()=>{
+      (slideIndex <20) ? increment(): home();
+   }, 7500)
    return (
       <Scene >
          <ContextCounter.Provider value={counter}>
-            <NavButtons />
+            <DisplayBoard />
             <Menu />
-            <ARTarget />
             <User />
             <Entity primitive="a-sky" color="grey" />
          </ContextCounter.Provider>
