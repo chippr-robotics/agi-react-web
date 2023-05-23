@@ -13,7 +13,7 @@ import "./assets/af_components/voice-nav";
 
 import User from "./components/User";
 import DisplayBoard from "./components/displayBoard";
-import NavButtons from "./components/navButtons";
+import NavButtons from "./components/UI/navButtons";
 import Menu from "./components/UI/speech";
 
 export const ContextCounter = createContext(null);
@@ -49,9 +49,7 @@ function App() {
    const counter = useMemo(() => {
       return { titleIndex, slideIndex, increment, decrement, home};
    }, [slideIndex, titleIndex]);
-   setInterval(()=>{
-      (slideIndex <20) ? increment(): home();
-   }, 7500)
+   
    return (
       <Scene >
          <ContextCounter.Provider value={counter}>
