@@ -5,15 +5,12 @@ import "./styles/index.css";
 import "aframe"; 
 import { Entity, Scene } from "aframe-react";
 import "aframe-event-set-component" 
-import "./assets/js/aframe-environment"; 
-import "./assets/af_components/ar-components";
 import "./assets/af_components/voice-nav";
 
 //Custom components
 
 import User from "./components/User";
 import DisplayBoard from "./components/displayBoard";
-import NavButtons from "./components/UI/navButtons";
 import Menu from "./components/UI/speech";
 
 export const ContextCounter = createContext(null);

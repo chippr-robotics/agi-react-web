@@ -1,7 +1,5 @@
 import { h } from "preact"; 
-import { useState } from "preact/hooks"; 
 import { Entity} from "aframe-react"; 
-import Navbar from "./UI/NavBar";
                    
 export default function User() {              
        let prompt = 'false'; 
