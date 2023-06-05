@@ -11,7 +11,7 @@ echo "####"
 echo "# Adding files to ipfs"
 echo "####"
 
-ipfs add -r . >> files.txt
+ipfs add -r build/. >> files.txt
 CID=$(cat files.txt | tail -n 1 | cut -c 7-52)
 
 echo "####"

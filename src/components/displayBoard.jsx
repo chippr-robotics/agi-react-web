@@ -21,6 +21,7 @@ export default function DisplayBoard() {
                 width="1.05" 
                 position="-1.2 .5 .25" 
                 rotation=" 0 0 10 "
+                look-at="user"
                 animation="property: rotation; to: 0 10 -10; dur: 15000; dir:alternate; loop: true"
             />
         

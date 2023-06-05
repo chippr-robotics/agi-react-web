@@ -1,6 +1,7 @@
 import { h } from "preact"; 
 import { Entity} from "aframe-react"; 
-                   
+import Geohash from "./UI/geohash"
+import Hands from "./UI/hands";
 export default function User() {              
        let prompt = 'false'; 
        
@@ -15,6 +16,7 @@ export default function User() {
        return (                                     
               <Entity 
                      primitive="a-camera"
+                     id="user"
                      position="0 0 0" 
                      look-controls="enabled: true" 
                      cursor="fuse: false; rayOrigin: mouse;" 
@@ -27,7 +29,10 @@ export default function User() {
                             events={{
                                    'next' : reset
                             }}
-                            />    
+                            />  
+              <Hands />
+              
+              <Geohash /> 
               </Entity> 
        ); 
 }
