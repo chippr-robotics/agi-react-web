@@ -9,8 +9,7 @@ function clickHandler() {
 
 
 export default function Toaster() {              
-    const { slideIndex, titleIndex } = useContext(ContextCounter);
-    
+  
     
     return(
         <Entity

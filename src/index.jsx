@@ -7,20 +7,14 @@ import "preact/devtools";
 import "./styles/index.css"; 
 import useLocalStorage from "use-local-storage";
 
-//import for aframe-react
-import "aframe"; 
-import { Entity, Scene } from "aframe-react";
+
+// BCI - neurosity crown
+import { Neurosity } from "@neurosity/sdk";
 
 //pages
 import { Login } from "./pages/Login";
-
-//Custom components
-import User from "./components/User";
-import Menu from "./components/UI/speech";
-import "aframe-event-set-component" 
-import "./assets/js/aframe-environment"; 
-import "./assets/af_components/ar-components";
-import "./assets/af_components/voice-nav";
+import { Logout } from "./pages/Logout";
+import { Dojo } from "./pages/Dojo";
 
 
 export const ContextCounter = createContext(null);
@@ -30,7 +24,44 @@ function App() {
    const [user, setUser] = useState(null);
    const [deviceId, setDeviceId] = useLocalStorage("deviceId");
    const [loading, setLoading] = useState(true);
-     
+   
+   //sync the device id 
+   useEffect(() => {
+      if (deviceId) {
+        const neurosity = new Neurosity({ deviceId });
+        setNeurosity(neurosity);
+      } else {
+        setLoading(false);
+      }
+    }, [deviceId]);
+
+   //wait until we have a device before starting
+   useEffect(() => {
+      if (!neurosity) {
+        return;
+      }
+    
+      const subscription = neurosity.onAuthStateChanged().subscribe((user) => {
+        if (user) {
+          setUser(user);
+        } else {
+          navigate("/");
+        }
+        setLoading(false);
+      });
+    
+      return () => {
+        subscription.unsubscribe();
+      };
+    }, [neurosity]);
+
+   // If already authenticated, redirect user to the Calm page
+   useEffect(() => {
+      if (user) {
+      navigate("/dojo");
+      }
+   } , [user]);
+   
    return (
       <Router>
       <Login
@@ -40,15 +71,23 @@ function App() {
         setUser={setUser}
         setDeviceId={setDeviceId}
       />
+      <Logout
+      path="/logout"
+      neurosity={neurosity}
+      resetState={() => {
+        setNeurosity(null);
+        setUser(null);
+        setDeviceId("");
+      }}
+      />
+      <Dojo 
+      path="/dojo" 
+      neurosity={neurosity} 
+      user={user} 
+      />
       </Router> 
    );
 };
-/*
-      <Scene >
-         <ContextCounter.Provider value={counter}>
-            <User />
-            <Entity primitive="a-sky" color="grey" />
-         </ContextCounter.Provider>
-      </Scene>*/
+
 
 render(<App />, document.body);
