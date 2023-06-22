@@ -1,34 +1,45 @@
-import { h, Fragment } from "preact"; 
+import { h } from "preact"; 
 import { Entity } from "aframe-react";
 import { useState, useEffect  } from "preact/hooks"; 
-import { Toptext } from "./Toptext";
-import { StatusMarker } from "./StatusMarker";
-import { BatteryMarker } from "./Battery";
-  
-  export function Status({ neurosity }) {
-    const [status, setStatus] = useState(null);
-    const [info, setInfo] = useState(null);
 
+const statesLabels = {
+    booting: "Starting OS...",
+    shuttingOff: "Shutting off...",
+    updating: "Updating OS...",
+    online: "Online",
+    offline: "Offline"
+  };
+  
+  const stateColors = {
+    booting: "darkslategrey",
+    shuttingOff: "darkslategrey",
+    updating: "orange",
+    online: "limegreen",
+    offline: "crimson"
+  };
+  
+  function getStatusColor(state) {
+    if (state in stateColors) {
+      return stateColors[state];
+    }
+  
+    return stateColors.offline;
+  }
+  
+  export function Status({ neurosity, info }) {
+    const [status, setStatus] = useState(null);
     const { state, charging, battery, sleepMode } = status || {};
   
     useEffect(() => {
       if (!neurosity) {
         return;
       }
-      //Get status info
+  
       const subscription = neurosity.status().subscribe((status) => {
         setStatus(status);
       });
-      
-      //get device info
-      const setDeviceInfo = setInterval(async ()=>{
-        let deviceInfo = await neurosity.getInfo();
-        setInfo(deviceInfo);
-        console.log(info);
-      }, 5000);
-
+  
       return () => {
-        clearInterval(setDeviceInfo);
         subscription.unsubscribe();
       };
     }, [neurosity]);
@@ -38,17 +49,16 @@ import { BatteryMarker } from "./Battery";
     }
   
     return (
-      <>
-        {info ? <Toptext textValue={info.deviceNickname} /> : <Toptext textValue={"Device name not availiable"} />}
+      <Entity>
+        {info ? <Entity className="deviceName" primitive = >{info.deviceNickname}</h3> : null}
         
-        <StatusMarker state={state} />
-        {state !== "offline" ? (
-        <BatteryMarker charging={charging} battery={battery} />
-        ): null}
-        </>
-    );
-  }/*
- 
+        <div className="status-item status-state">
+          <span
+            className="status-indicator"
+            style={{ background: getStatusColor(state) }}
+          ></span>
+          {state in statesLabels ? statesLabels[state] : state}
+        </div>
         {state !== "offline" ? (
           <div className="status-item status-battery">
             <span role="img" aria-label="Electricity Emoji">
@@ -66,4 +76,6 @@ import { BatteryMarker } from "./Battery";
             {" Sleep mode "}
           </div>
         ) : null}
-  */ 
+      </Entity>
+    );
+  }

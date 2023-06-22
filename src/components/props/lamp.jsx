@@ -33,11 +33,11 @@ const stateColors = {
     return stateColors.offline;
   }
 
-export default function Lamp({ neurosity }) {   
+export function Lamp({neurosity, info}) {   
     const [status, setStatus] = useState(null);
     const { state, charging, battery, sleepMode } = status || {};
     useEffect(() => {
-        if (!neurosity) {
+        if ( !neurosity) {
           return;
         }
     
@@ -50,18 +50,27 @@ export default function Lamp({ neurosity }) {
         };
       }, [neurosity]);
 
-    console.log(`status: ${status}`)
-    console.log(`state: ${state}`)
     return(
         <Entity
-         position="0 0 -1"
+         position="-.5 1 -1"
         >
             <Entity 
             primitive="a-obj-model"
             src={lamp_obj}
             mtl={lamp_mtl}
+            ></Entity>
+            <Entity 
+            primitive="a-text"
+            value={(status) ? status.battery + "%" : "Awaiting connection.."}
+            position="0 1 -2.5"
+            color="red"
+            ></Entity>
+            <Entity
+            primitive="a-text"
+            value={ (charging) ? "Device Charging ..." : null }
+            position="0 0 -1.5"
             />
-             <Entity
+            <Entity
             primitive="a-text"
             value={state in statesLabels ? statesLabels[state] : "Connecting to device..."}
             position="0 0 -1"
@@ -72,7 +81,7 @@ export default function Lamp({ neurosity }) {
             primitive="a-light"
             type="point"
             position ="0 0 0"
-            color={getStatusColor(status)}
+            color={getStatusColor(status.state)}
             />) : null}
         </Entity>
     );

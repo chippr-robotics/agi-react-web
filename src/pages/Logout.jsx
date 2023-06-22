@@ -1,15 +1,15 @@
 import { useEffect } from "preact/hooks";
 import { navigate } from "@reach/router";
 
-export function Logout({ crown, resetState }) {
+export function Logout({ neurosity, resetState }) {
   useEffect(() => {
-    if (crown) {
-      crown.logout().then(() => {
+    if (neurosity) {
+      neurosity.logout().then(() => {
         resetState();
         navigate("/");
       });
     }
-  }, [crown, resetState]);
+  }, [neurosity, resetState]);
 
   return null;
 }

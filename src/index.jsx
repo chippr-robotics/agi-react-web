@@ -15,7 +15,7 @@ import { Neurosity } from "@neurosity/sdk";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Dojo } from "./pages/Dojo";
-
+import { Calm } from "./pages/Calm";
 
 export const ContextCounter = createContext(null);
 
@@ -57,7 +57,7 @@ function App() {
 
    // If already authenticated, redirect user to the Calm page
    useEffect(() => {
-      if (user) {
+      if (user ) {
       navigate("/dojo");
       }
    } , [user]);
@@ -80,6 +80,7 @@ function App() {
         setDeviceId("");
       }}
       />
+  
       <Dojo 
       path="/dojo" 
       neurosity={neurosity} 
