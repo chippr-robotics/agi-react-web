@@ -1,7 +1,7 @@
 import { h } from "preact"; 
 import { useContext } from "preact/hooks"; 
 import { Entity} from "aframe-react"; 
-import {ContextCounter} from '../../index';
+import {ContextCounter} from '../../../index';
 
 function clickHandler() {
     console.log("click");

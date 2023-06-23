@@ -1,9 +1,8 @@
 import { h } from "preact"; 
 import { useState } from "preact/hooks"; 
 import { Entity} from "aframe-react"; 
-import Navbar from "./UI/NavBar";
-import Toaster from "./toast/Toaster";
-import { Status } from "./UI/Status";
+
+import  Crown  from "./UI/CrownUI";
 
 export default function User({ neurosity }) {              
        
@@ -16,7 +15,7 @@ export default function User({ neurosity }) {
                      cursor="fuse: false; rayOrigin: mouse;" 
                      raycaster="far: 10000; objects: .raycasterable">
 
-              <Status neurosity={neurosity}  />
+              <Crown neurosity={neurosity}  />
               </Entity> 
        ); 
 }

@@ -3,7 +3,7 @@ import { useState, useEffect  } from "preact/hooks";
 
 import { navigate } from "@reach/router";
 
-import { Status } from "./Status";
+
 
 
 export function Nav({ neurosity }) {

@@ -23,23 +23,18 @@ function getStatusColor(state) {
     }
   
     return stateColors.offline;
-    }
+    }              
+
 
 export function StatusMarker({ state }) {
     return (
-        <>
-        <Entity  
-            primitive="a-sphere" 
-            position="-2.8 2.1 -3"
-            radius=".05"
-            rotation="0 15 0"
-            color={getStatusColor(state)} />
+        
         <Entity 
             className="StatText" 
             primitive="a-text" 
             position="-2.75 2.1 -3"
             rotation="0 15 0"
             align="left" 
+            color={getStatusColor(state)}
             value={state in statesLabels ? statesLabels[state] : state} />
-        </>
-    )};
+        )};
