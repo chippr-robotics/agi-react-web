@@ -6,6 +6,7 @@ import { Router, navigate } from "@reach/router";
 import "preact/devtools"; 
 import "./styles/index.css"; 
 import useLocalStorage from "use-local-storage";
+import { Entity, Scene } from "aframe-react";
 
 
 // BCI - neurosity crown
@@ -57,13 +58,14 @@ function App() {
 
    // If already authenticated, redirect user to the Calm page
    useEffect(() => {
-      if (user ) {
+      if (user != null) {
       navigate("/dojo");
       }
    } , [user]);
    
    return (
-      <Router>
+    
+    <Router>
       <Login
         path="/"
         neurosity={neurosity}
@@ -80,13 +82,14 @@ function App() {
         setDeviceId("");
       }}
       />
-  
+ 
       <Dojo 
       path="/dojo" 
       neurosity={neurosity} 
       user={user} 
       />
       </Router> 
+    
    );
 };
 

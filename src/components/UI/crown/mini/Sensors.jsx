@@ -7,16 +7,15 @@ import { useState, useEffect  } from "preact/hooks";
 
 export function Sensors({neurosity}) { 
     const [signal, setSignal] = useState([]);
+    
     useEffect(() => {
         if (!neurosity) {
           return;
         }
         //Get status info
         const subscription = neurosity.signalQuality().subscribe((signalQuality) => {
-            setSignal(signalQuality);
-            //console.log(signal[0].status)  
+            setSignal(signalQuality);  
           });
-          console.log(subscription);
         return () => {
             subscription.unsubscribe();
         };
@@ -29,7 +28,7 @@ export function Sensors({neurosity}) {
         PO3:    "-.15 -.3 0",
         PO4:    " .15 -.3 0",
         F6:     "  .3 .2 0.05",
-        C4:     "   .2  0 .2",
+        C4:     "  .2  0 .2",
         CP4:    " .2 -.1 .15"
     };
 
@@ -59,19 +58,22 @@ export function Sensors({neurosity}) {
     };
 
     function getPosition(name){
+        //console.log(name);
         return sensorPosition[name];
     }
 
     return (
     <Entity>
         { Object.keys(signal).map((i)=> (
-          
-       <Probe 
+        <Entity>
+       
+        <Probe 
             value={sensorName[i]} 
             probeColor={statusColors[signal[i].status]} 
             textColor= {textColors[signal[i].status]}
             position={getPosition(sensorName[i])} 
             />
+        </Entity>
             ))}
     </Entity>
     )};

@@ -5,23 +5,6 @@ import { Probe } from "./Probe";
 
 
 export function Haptics({neurosity}) { 
-    const effects = neurosity.getHapticEffects();
-    
-    async function vibrate(){
-    const result = await neurosity.haptics({
-        P7: [
-            effects.transitionRampUpLongSmooth1_0_to_100,
-            effects.transitionRampDownLongSmooth1_100_to_0,
-            effects.transitionRampUpLongSmooth1_0_to_100,
-            effects.transitionRampDownLongSmooth1_100_to_0,
-            effects.transitionRampUpLongSmooth1_0_to_100,
-            effects.transitionRampDownLongSmooth1_100_to_0,
-            effects.longDoubleSharpClickStrong1_100
-          ]
-      });
-      console.log(result);
-    }
-
     return (
     <Entity
     rotation="15 0 0">

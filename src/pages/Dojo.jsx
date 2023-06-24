@@ -53,20 +53,14 @@ export function Dojo({ user, neurosity }) {
     }
     const ballTracker = '0 '+ calm*5 +' -2';
     return (
-        <Scene >
+        <Scene>
           <Entity
           primitive="a-sphere"
           position={ballTracker}
           radius=".05"
           color="blue"
           ></Entity>
-          <Entity
-           primitive="a-text"
-           value={calm*5}
-           position="0, 2, -2"
-           color="red"
-           height=".05"
-           ></Entity>
+         
           <Entity
             primitive="a-light"
             type="ambient"
@@ -82,8 +76,8 @@ export function Dojo({ user, neurosity }) {
             />
             
             <User neurosity={neurosity} /> 
-           <Entity primitive="a-sky" color="lightblue" />
-     </Scene>
+       </Scene>
+   
     );
   }
   /** <main className="main-container">

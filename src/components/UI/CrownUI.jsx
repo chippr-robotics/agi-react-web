@@ -8,7 +8,7 @@ import { SleepMarker } from "./crown/SleepMarker";
 import { InfoBox } from "./crown/InfoBox";
 import { MiniDevice } from "./crown/MiniDevice";
 import { Band } from "./crown/mini/Band";
-  
+import { Zone } from "./crown/Zone";  
   export default function Crown({ neurosity }) {
     const [status, setStatus] = useState(null);
 
@@ -43,6 +43,7 @@ import { Band } from "./crown/mini/Band";
               
         <MiniDevice neurosity={neurosity} />
         <Band neurosity={neurosity} />
+        <Zone neurosity={neurosity} />
       </Entity>
 
     );

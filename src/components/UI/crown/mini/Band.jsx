@@ -32,11 +32,11 @@ export function Band({neurosity}) {
       }, [neurosity]);
     
     const bandPosition = {
-        delta:   [-2,   0, -2],
-        theta:   [-1.8, 0, -2],
-        alpha:   [-1.6, 0, -2],
-        beta:    [-1.4, 0,-2],
-        gamma:   [-1.2, 0, -2],
+        delta:   [ -0.2,   0, -3.5],
+        theta:   [ -0.1,   0, -3.55],
+        alpha:   [ 0 ,     0, -3.51],
+        beta:    [ 0.1,    0, -3.55],
+        gamma:   [ 0.2,    0, -3.5],
     };
 
     const sensorName = {
@@ -59,13 +59,25 @@ export function Band({neurosity}) {
     }
 
     return (
-    <Entity>
+    <Entity
+    rotation="0 40 0">
         { Object.keys(signal).map((i)=> (          
-       <Probe 
+        <Entity>
+            <Probe 
             value={i} 
             probeColor="red" 
             position={getPosition(i)} 
             />
+            <Entity
+            primitive="a-text" 
+            value={i}
+            color="white"
+            width="3"
+            align="left"
+            rotation="0 0 90"
+            position={getPosition(i)}
+            />
+        </Entity>
             ))}
     </Entity>
     )};
