@@ -5,7 +5,7 @@ import { useState } from "preact/hooks";
 
 export function CircleDial({dialValue, name, location}) {
     const [maxValue, setMaxValue] = useState(0);
-    const [maxPos, setMaxPos] = useState(180);
+    const [maxPos, setMaxPos] = useState(0);
 
     function setNewMax(){
         setMaxValue(dialValue);
@@ -27,7 +27,7 @@ export function CircleDial({dialValue, name, location}) {
         <Entity
         id="value"
         primitive="a-text"
-        value={dialValue+ "%"}
+        value={(dialValue || 0) + "%"}
         width="12"
         color="white"            
         align="center"
