@@ -12,13 +12,14 @@ export function MiniDevice( { neurosity } ) {
     const [accelerometer, setAccelerometer] = useState(null);
     const [avgRoll, setAvgRoll] = useState(0);
     const [avgPitch, setAvgPitch] = useState(0);
-    const [avgInc, setAvgInc] = useState(0);
+    const [avgInc, setAvgInc] = useState([]);
     
     const { acceleration, inclination, orientation, pitch, roll, x, y, z } = accelerometer || {};
     
     //smooth
     function setItem (array, item, length) {
         array.unshift(item) > length ?  array.pop() : null
+        return array;
     }
     let rollArray= [];
     let pitchArray= [];
@@ -34,9 +35,9 @@ export function MiniDevice( { neurosity } ) {
             setAccelerometer(acc);
             setItem(rollArray, Number(acc.roll), len);
             setItem(pitchArray, Number(acc.pitch), len);
-            setItem(incArray, Number(acc.inclination), len);
-            (acc.acceleration > 1.1) ? console.log(acc.acceleration  + " x: " + acc.x + " y: " + acc.y + " z: " + acc.z) : null;
-        //smooth the movement
+            setAvgInc(setItem(incArray, [acc.acceleration, acc.x, acc.y, acc.z], 10));
+            
+            //smooth the movement
         let sum1 = 0;
         let sum2 = 0; 
         let sum3 = 0;
@@ -47,33 +48,33 @@ export function MiniDevice( { neurosity } ) {
           sum2 += number;
         });
         incArray.forEach((number) => {
-          sum3 += number;
+          sum3 += number[0];
         });
         setAvgRoll(sum1 / len);
         setAvgPitch(sum2 / len);
-        setAvgInc(sum3 / len);
+      
         });
-          
         return () => {
             subscription.unsubscribe();
         };
       }, [neurosity]);
     function getRotation(){
         //adjust rotation elements by some bias to make it feel right
-        let ort = 1;
-        let xRoll = -70   ;
-        let yRoll= avgPitch * -3 ; 
-        let zRoll= avgPitch * 3;
+        let xRot = -avgRoll    ;
+        let yRot = -avgPitch  ; 
+        let zRot = -avgPitch  ;
         //console.log(avgRoll + " " + avgPitch + " " + avgInc)
         
         //bi tilt right
-        let rotation = "" + xRoll + " " + yRoll  + " " + zRoll; // 0 pitch
+        let rotation = "" + xRot + " " + yRot  + " " + zRot; // 0 pitch
         return rotation.toString();
     }
     return (
       <Entity 
           position="-1 -1 -2"
-                    >
+          rotation="-120 0 0"
+          scale=".5 .5 .5" 
+          >
     
           <Entity
           rotation={getRotation()}

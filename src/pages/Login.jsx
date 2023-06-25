@@ -42,5 +42,5 @@ export function Login({ neurosity, user, setUser, setDeviceId }) {
     }
   }
 
-  return <LoginForm onLogin={onLogin} loading={isLoggingIn} error={error} />;
+  return <LoginForm class="overlay" onLogin={onLogin} loading={isLoggingIn} error={error} />;
 }

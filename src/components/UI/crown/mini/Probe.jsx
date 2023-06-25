@@ -13,6 +13,8 @@ export function Probe({textColor, probeColor, value, position }) {
             segments="6"
             position={position}
             color={probeColor}
+            side="double"
+
             >
         <Entity
             primitive="a-text"
