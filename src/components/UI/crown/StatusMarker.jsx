@@ -5,8 +5,8 @@ const statesLabels = {
     booting: "Starting OS...",
     shuttingOff: "Shutting off...",
     updating: "Updating OS...",
-    online: "Online",
-    offline: "Offline"
+    online: "ONLINE",
+    offline: "OFFLINE"
   };
   
 const stateColors = {
@@ -32,9 +32,9 @@ export function StatusMarker({ state }) {
         <Entity 
             className="StatText" 
             primitive="a-text" 
-            position="-2.75 2.1 -3"
-            rotation="0 15 0"
-            align="left" 
+            position="2 1.65 -2.75"
+            align="left"
+            width="2" 
             color={getStatusColor(state)}
             value={state in statesLabels ? statesLabels[state] : state} />
         )};

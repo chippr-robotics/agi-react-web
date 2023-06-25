@@ -2,6 +2,7 @@ import { h, Fragment } from "preact";
 import { Entity } from "aframe-react";
 
 import { useState, useEffect  } from "preact/hooks"; 
+import { CircleDial } from "./CircleDial";
 
 //smooth
 function setItem (array, item, length) {
@@ -22,7 +23,7 @@ export function Focus({neurosity}) {
         }
         //Get status info
         const subscription = neurosity.focus().subscribe((focus) => {
-           let fs = Number(focus.probability.toFixed(2));
+           let fs = Number(focus.probability.toFixed(2) * 100);
            if(maxS < fs ){ setMaxS(fs) ;}
            setItem(signalArray, fs, 10);
           let sum = 0;
@@ -38,25 +39,5 @@ export function Focus({neurosity}) {
       }, [neurosity]);
 
     return (
-        <Entity>
-            
-            <Entity
-            primitive="a-text" 
-            value="< FOCUS"
-            color="white"
-            width="3"
-            align="center"
-            position={"0 "+ signal +" 0"}
-            />
-            <Entity
-            primitive="a-text" 
-            value="<--"
-            color="white"
-            width="3"
-            align="right"
-            position={"-.1 " + maxS.toString() + " .01"}
-            />
-
-        </Entity>
-            
+            <CircleDial dialValue={signal} name="FOCUS" location="1 0 1" />
     )};

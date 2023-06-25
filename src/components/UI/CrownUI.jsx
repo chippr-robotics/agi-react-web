@@ -30,19 +30,18 @@ import { Zone } from "./crown/Zone";
       };
     }, [neurosity]);
   
-    if (!status) {
+    /*if (!status) {
       return <div>Connecting to device...</div>;
-    } 
+    } */
     return (
-      <Entity
-      visible="true">
+      <Entity>
         <StatusMarker state={state} />
         { sleepMode ? <SleepMarker /> : null}
-        <InfoBox neurosity={neurosity} />
+        <InfoBox neurosity={neurosity} expanded="false" />
         <BatteryMarker charging={charging} battery={battery} />
               
         <MiniDevice neurosity={neurosity} />
-        <Band neurosity={neurosity} />
+     
         <Zone neurosity={neurosity} />
       </Entity>
 

@@ -74,7 +74,7 @@ export function Dojo({ user, neurosity }) {
                 click: handleClick
             }} 
             />
-            
+           
             <User neurosity={neurosity} /> 
        </Scene>
    

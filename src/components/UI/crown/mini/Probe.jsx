@@ -7,9 +7,10 @@ export function Probe({textColor, probeColor, value, position }) {
     return (
     <Entity>
        <Entity 
-            className="haptic p7" 
+            className="eeg" 
             primitive="a-circle"
             radius=".05"
+            segments="6"
             position={position}
             color={probeColor}
             >

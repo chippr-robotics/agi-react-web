@@ -9,5 +9,8 @@ export function Orientate() {
             className="pointer" 
             primitive="a-sphere"
             radius=".05"
+            position="0 -.22 0"
             />
+
+        
     )};

@@ -73,10 +73,14 @@ export function MiniDevice( { neurosity } ) {
     return (
       <Entity 
           position="-1 -1 -2"
+                    >
+    
+          <Entity
           rotation={getRotation()}
-          emit>
-        <Orientate  / > 
-        <Haptics neurosity={neurosity} />
-        <Sensors neurosity={neurosity} />
+          >
+          <Orientate  / > 
+          <Haptics neurosity={neurosity} />
+          <Sensors neurosity={neurosity} />
+        </Entity>
       </Entity>
      )};

@@ -16,7 +16,6 @@ import { Neurosity } from "@neurosity/sdk";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Dojo } from "./pages/Dojo";
-import { Calm } from "./pages/Calm";
 
 export const ContextCounter = createContext(null);
 
