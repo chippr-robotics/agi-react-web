@@ -53,7 +53,10 @@ export function Dojo({ user, neurosity }) {
     }
     const ballTracker = '0 '+ calm*5 +' -2';
     return (
-      <Scene>
+      <Scene 
+        webxr="requiredFeatures: hit-test,local-floor;
+        optionalFeatures: dom-overlay,unbounded;
+        overlayElement: #overlay;">
       <Entity>
           <Entity
           primitive="a-sphere"

@@ -14,7 +14,7 @@ export default function User({ neurosity }) {
                      look-controls="enabled: true" 
                      cursor="fuse: false; rayOrigin: mouse;" 
                      raycaster="far: 10000; objects: .raycasterable">
-              <Crown neurosity={neurosity}  />
+              <Crown class="overlay" neurosity={neurosity}  />
               </Entity> 
        ); 
 }
