@@ -1,0 +1,28 @@
+[{
+    "id" : 1, 
+    "name" : "Privacy",
+    "pos" : "",
+    "neg" : "",
+    "position" : "0 .5 1"
+},
+{
+    "id" : 2, 
+    "name" : "Security",
+    "pos" : "",
+    "neg" : "",
+    "position" : "0 -1 0"
+},{
+    "id" : 3, 
+    "name" : "Transparency",
+    "pos" : "",
+    "neg" : "",
+    "position" : "0 1 0"
+},{
+    "id" : 4, 
+    "name" : "Consent",
+    "pos" : "",
+    "neg" : "",
+    "position" : "0 1 0"
+}
+
+]
