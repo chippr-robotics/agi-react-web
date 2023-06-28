@@ -2,7 +2,7 @@ import { h, Fragment } from "preact";
 import { Entity } from "aframe-react";
 
 import { useState, useEffect  } from "preact/hooks"; 
-import { CircleDial } from "./CircleDial";
+import { CircleDial } from "../../metrics/CircleDial";
 
 //smooth
 function setItem (array, item, length) {

@@ -80,7 +80,7 @@ function App() {
         setDeviceId("");
       }}
       />
- 
+  
       <Dojo 
       path="/dojo" 
       neurosity={neurosity} 

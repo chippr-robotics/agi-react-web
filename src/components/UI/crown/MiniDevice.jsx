@@ -18,7 +18,8 @@ export function MiniDevice( { neurosity } ) {
     
     //smooth
     function setItem (array, item, length) {
-        array.unshift(item) > length ?  array.pop() : null
+        array.unshift(item) > length ?  array.pop() : null;
+        
         return array;
     }
     let rollArray= [];
