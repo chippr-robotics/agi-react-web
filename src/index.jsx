@@ -9,7 +9,7 @@ import useLocalStorage from "use-local-storage";
 import { Entity, Scene } from "aframe-react";
 
 
-// BCI - neurosity crown
+// BCI - neurosity crown maybe not, I want to set this as a system
 import { Neurosity } from "@neurosity/sdk";
 
 //pages
